@@ -43,30 +43,27 @@ function showTemperature(response) {
   document.querySelector("#current").innerHTML = Math.round(
     response.data.main.temp
   );
-
-  let message = `${temperature}°C`;
-  let currentTemp = document.querySelector("current");
-  currentTemp.innerHTML = message;
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  document.querySelector("h5").innerHTML = response.data.weather[0].main;
 }
 
-function showCity(event) {
-  event.preventDefault();
+function search(city) {
   let apiKey = "46fac47dd8b8fa26d1b6852218ad3dfe";
   let units = "metric";
-  let city = document.querySelector("#city-input").value;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showTemperature);
 }
 
-let formInput = document.querySelector("#input-field");
-formInput.addEventListener("submit", showCity);
-
-function displayFahrenheit(event) {
+function handleSubmit(event) {
   event.preventDefault();
-
-  let currentDegree = document.querySelector("current");
-  currentDegree.innerHTML = "85°C";
+  let city = document.querySelector("#city-input").value;
+  search(city);
 }
 
-let clickFahrenheit = document.querySelector("fahren");
-clickFahrenheit.addEventListener("click", displayFahrenheit);
+let formInput = document.querySelector("#input-field");
+formInput.addEventListener("submit", handleSubmit);
+
+search("New York");
