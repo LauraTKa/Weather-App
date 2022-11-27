@@ -38,13 +38,24 @@ if (hours < 12) {
   h4.innerHTML = `${day}, ${date} ${month}, ${hours}:${minutes}pm`;
 }
 
+function showTemperature(response) {
+  document.querySelector("h1").innerHTML = response.data.name;
+  document.querySelector("#current").innerHTML = Math.round(
+    response.data.main.temp
+  );
+
+  let message = `${temperature}°C`;
+  let currentTemp = document.querySelector("current");
+  currentTemp.innerHTML = message;
+}
+
 function showCity(event) {
   event.preventDefault();
-
-  let cityInput = document.querySelector("#city-input");
-
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = `${cityInput.value}`;
+  let apiKey = "46fac47dd8b8fa26d1b6852218ad3dfe";
+  let units = "metric";
+  let city = document.querySelector("#city-input").value;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showTemperature);
 }
 
 let formInput = document.querySelector("#input-field");
@@ -59,17 +70,3 @@ function displayFahrenheit(event) {
 
 let clickFahrenheit = document.querySelector("fahren");
 clickFahrenheit.addEventListener("click", displayFahrenheit);
-
-function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
-  console.log(temperature);
-  console.log(response);
-  let message = `${temperature}°C`;
-  let currentTemp = document.querySelector("current");
-  currentTemp.innerHTML = message;
-}
-
-let apiKey = "46fac47dd8b8fa26d1b6852218ad3dfe";
-let units = "metric";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=${units}`;
-axios.get(apiUrl).then(showTemperature);
