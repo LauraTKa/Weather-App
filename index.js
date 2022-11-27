@@ -66,4 +66,4 @@ function handleSubmit(event) {
 let formInput = document.querySelector("#input-field");
 formInput.addEventListener("submit", handleSubmit);
 
-search("New York");
+search("Nuremberg");
