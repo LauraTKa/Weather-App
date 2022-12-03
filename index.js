@@ -55,6 +55,9 @@ function showTemperature(response) {
     response.data.wind.speed
   );
   document.querySelector("h5").innerHTML = response.data.weather[0].main;
+  document
+    .querySelector("#current-icon")
+    .setAttribute("src", response.data.weather[0].icon);
 }
 
 function search(city) {
