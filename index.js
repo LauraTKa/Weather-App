@@ -31,6 +31,13 @@ let months = [
 let month = months[now.getMonth()];
 
 let h4 = document.querySelector("h4");
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
+
+if (hours < 10) {
+  hours = `0${hours}`;
+}
 
 if (hours < 12) {
   h4.innerHTML = `${day}, ${date} ${month}, ${hours}:${minutes}am`;
