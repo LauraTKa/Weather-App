@@ -46,6 +46,7 @@ if (hours < 12) {
 }
 
 function showTemperature(response) {
+  let iconElement = document.querySelector("#current-icon");
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("#current").innerHTML = Math.round(
     response.data.main.temp
@@ -55,9 +56,10 @@ function showTemperature(response) {
     response.data.wind.speed
   );
   document.querySelector("h5").innerHTML = response.data.weather[0].main;
-  document
-    .querySelector("#current-icon")
-    .setAttribute("src", response.data.weather[0].icon);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function search(city) {
