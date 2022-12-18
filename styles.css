@@ -79,10 +79,10 @@ ul {
   position: relative;
 }
 
-.current-information {
+ul {
   border: 2px solid #7b7974;
-  padding: 5px;
-  margin: 5px auto;
+  padding: 20px;
+  margin: 20px auto;
   max-width: 800px;
   border-radius: 20px;
   background-color: white;
