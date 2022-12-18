@@ -133,9 +133,34 @@ formInput.addEventListener("submit", handleSubmit);
 
 search("Nuremberg");
 
-function showLondon() {
-  alert("hi");
+function showLondon(event) {
+  event.preventDefault();
+  search("London");
 }
 
 let clickLondon = document.querySelector("#London");
 clickLondon.addEventListener("click", showLondon);
+
+function showMunich(event) {
+  event.preventDefault();
+  search("Munich");
+}
+
+let clickMunich = document.querySelector("#Munich");
+clickMunich.addEventListener("click", showMunich);
+
+function showHonolulu(event) {
+  event.preventDefault();
+  search("Honolulu");
+}
+
+let clickHonolulu = document.querySelector("#Honolulu");
+clickHonolulu.addEventListener("click", showHonolulu);
+
+function showGuarapari(event) {
+  event.preventDefault();
+  search("Guarapari");
+}
+
+let clickGuarapari = document.querySelector("#Guarapari");
+clickGuarapari.addEventListener("click", showGuarapari);
