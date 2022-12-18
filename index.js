@@ -79,3 +79,10 @@ let formInput = document.querySelector("#input-field");
 formInput.addEventListener("submit", handleSubmit);
 
 search("Nuremberg");
+
+function showLondon() {
+  alert("hi");
+}
+
+let clickLondon = document.querySelector("#London");
+clickLondon.addEventListener("click", showLondon);
