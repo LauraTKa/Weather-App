@@ -6,17 +6,11 @@
   font-weight: 500;
   font-family: sans-serif;
   color: #7b7974;
+  text-decoration: none;
 }
 
 .input-field {
-  text-align: center;
-}
-
-.search-button {
-  background-color: rgba(9, 75, 188, 0.909);
-  border: #fff;
-  border-radius: 50px;
-  color: #fff;
+  height: 30px;
 }
 
 .weather-app {
